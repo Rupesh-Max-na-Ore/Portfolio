@@ -66,38 +66,46 @@ const ProjectsSection = () => {
     </SectionWrapper>
   );
 };
+
 const Modall = ({ project }: { project: Project }) => {
   return (
     <div className="flex items-center justify-center">
       <Modal>
-        <ModalTrigger className="bg-transparent flex justify-center group/modal-btn">
-          <div
-            className="relative w-[400px] h-auto rounded-lg overflow-hidden"
-            style={{ aspectRatio: "3/2" }}
-          >
-            <Image
-              className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all"
-              src={project.src}
-              alt={project.title}
-              width={300}
-              height={300}
-            />
-            <div className="absolute w-full h-1/2 bottom-0 left-0 bg-gradient-to-t from-black via-black/85 to-transparent pointer-events-none">
-              <div className="flex flex-col h-full items-start justify-end p-6">
-                <div className="text-lg text-left">{project.title}</div>
-                <div className="text-xs bg-white text-black rounded-lg w-fit px-2">
-                  {project.category}
-                </div>
-              </div>
+        <ModalTrigger className="w-full">
+          <div className="w-full rounded-xl border border-zinc-800 bg-zinc-900 hover:bg-zinc-800 transition p-5 cursor-pointer">
+            
+            {/* TITLE */}
+            <h3 className="text-lg font-semibold mb-2">
+              {project.title}
+            </h3>
+
+            {/* CATEGORY */}
+            <div className="text-xs text-zinc-400 mb-3">
+              {project.category}
             </div>
+
+            {/* TAGS */}
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs px-2 py-1 rounded bg-zinc-800 text-zinc-300"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
           </div>
         </ModalTrigger>
+
         <ModalBody className="md:max-w-4xl md:max-h-[80%] overflow-auto">
           <SmoothScroll isInsideModal={true}>
             <ModalContent>
               <ProjectContents project={project} />
             </ModalContent>
           </SmoothScroll>
+
           <ModalFooter className="gap-4">
             <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
               Cancel
@@ -124,6 +132,7 @@ const Modall = ({ project }: { project: Project }) => {
     </div>
   );
 };
+
 export default ProjectsSection;
 
 const ProjectContents = ({ project }: { project: Project }) => {
