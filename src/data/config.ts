@@ -24,7 +24,7 @@ const config = {
   ],
   author: "Rupesh Das",
   email: "dasrupesh2124@gmail.com",
-  site: "https://localhost:3002",
+  site: "https://your-domain.vercel.app",
 
   githubUsername: "Rupesh-Max-na-Ore",
   githubRepo: "portfolio",
