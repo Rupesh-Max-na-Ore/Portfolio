@@ -18,21 +18,14 @@ export const metadata: Metadata = {
     title: config.title,
     description: config.description.short,
     url: config.site,
-    images: [
-      {
-        url: config.ogImg,
-        width: 800,
-        height: 600,
-        alt: "Portfolio preview",
-      },
-    ],
+    images: [],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: config.title,
     description: config.description.short,
-    images: [config.ogImg],
+    images: [],
   },
   robots: {
     index: true,
@@ -59,12 +52,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={[inter.variable, archivoBlack.variable, "font-display"].join(" ")} suppressHydrationWarning>
       <head>
-        <Script
+        {/* <Script
           defer
           src={process.env.UMAMI_DOMAIN}
           data-website-id={process.env.UMAMI_SITE_ID}
-        ></Script>
+        ></Script> */}
+        {/* Analytics disabled temporarily */}
         {/* <Analytics /> */}
+        
       </head>
       <body>
         <Providers>

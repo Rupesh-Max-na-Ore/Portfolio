@@ -1,45 +1,40 @@
 const config = {
-  title: "Naresh Khatri | Full-Stack Developer",
+  title: "Rupesh Das | Systems Engineer | Backend, DevOps, AI",
   description: {
-    long: "Explore the portfolio of Naresh, a full-stack developer and creative technologist specializing in interactive web experiences, 3D animations, and innovative projects. Discover my latest work, including Coding Ducks, The Booking Desk, Ghostchat, and more. Let's build something amazing together!",
+    long: "Portfolio of Rupesh Das, a systems-oriented software engineer specializing in backend systems, DevOps/SRE, and agentic AI applications. Experienced in designing scalable architectures, building observability pipelines, and developing intelligent systems integrating LLMs with production-grade infrastructure.",
     short:
-      "Discover the portfolio of Naresh, a full-stack developer creating interactive web experiences and innovative projects.",
+      "Systems engineer focused on backend, DevOps/SRE, and AI-driven applications.",
   },
   keywords: [
-    "Naresh",
-    "portfolio",
-    "full-stack developer",
-    "creative technologist",
-    "web development",
-    "3D animations",
-    "interactive websites",
-    "Coding Ducks",
-    "The Booking Desk",
-    "Ghostchat",
-    "web design",
-    "GSAP",
-    "React",
-    "Next.js",
-    "Spline",
-    "Framer Motion",
+    "Rupesh Das",
+    "Systems Engineer",
+    "Backend Engineer",
+    "DevOps",
+    "SRE",
+    "Agentic AI",
+    "LLM Engineering",
+    "Distributed Systems",
+    "Observability",
+    "CI/CD",
+    "Docker",
+    "Kubernetes",
+    "PostgreSQL",
+    "Flask",
+    "Node.js",
   ],
-  author: "Naresh Khatri",
-  email: "naresh.khatri2345@gmail.com",
-  site: "https://nareshkhatri.site",
+  author: "Rupesh Das",
+  email: "dasrupesh2124@gmail.com",
+  site: "https://localhost:3002",
 
-  // for github stars button
-  githubUsername: "naresh-khatri",
-  githubRepo: "3d-portfolio",
+  githubUsername: "Rupesh-Max-na-Ore",
+  githubRepo: "portfolio",
 
-  get ogImg() {
-    return this.site + "/assets/seo/og-image.png";
-  },
   social: {
-    twitter: "https://x.com/nothotchaddi",
-    linkedin: "https://www.linkedin.com/in/naresh-khatri/",
-    instagram: "https://www.instagram.com/hotchaddi",
-    facebook: "https://www.facebook.com/HotChaddi/",
-    github: "https://github.com/Naresh-Khatri",
+    linkedin: "http://linkedin.com/in/rupesh-das-0106a8248/",
+    github: "https://github.com/Rupesh-Max-na-Ore",
+    twitter: "https://x.com/Rupesh_philo",
+    instagram: "#",
   },
 };
+
 export { config };

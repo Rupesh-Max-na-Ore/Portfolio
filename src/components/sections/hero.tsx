@@ -76,7 +76,7 @@ const HeroSection = () => {
                       "cursor-default font-display sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
                     )}
                   >
-                    A Full Stack Web Developer
+                    Backend • DevOps/SRE • Agentic AI Systems
                   </p>
                 </BlurIn>
               </div>
