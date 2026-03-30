@@ -1,19 +1,18 @@
 import { Button } from "@/components/ui/button";
-import { TypographyP } from "@/components/ui/typography";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
-import { RiNextjsFill, RiNodejsFill, RiReactjsFill } from "react-icons/ri";
 import {
   SiDocker,
   SiExpress,
   SiMongodb,
   SiPostgresql,
   SiPython,
-  SiSocketdotio,
-  SiSupabase,
+  SiRedis,
   SiTypescript,
+  SiJenkins,
 } from "react-icons/si";
+import { RiReactjsFill, RiNodejsFill } from "react-icons/ri";
 
 /* ---------------- TYPES ---------------- */
 
@@ -21,8 +20,6 @@ type ProjectRole = "backend" | "devops" | "ai" | "systems";
 
 export type Skill = {
   title: string;
-  bg: string;
-  fg: string;
   icon: ReactNode;
 };
 
@@ -31,14 +28,12 @@ export type Project = {
   category: string;
   title: string;
   src: string;
-  screenshots: string[];
-
   tags: ProjectRole[];
 
-  skills: { frontend: Skill[]; backend: Skill[] };
+  skills: Skill[];
 
-  live?: string;     // 🔥 made optional
-  github?: string;   // 🔥 already optional
+  github?: string;
+  live?: string;
 
   highlights: string[];
   architecture?: string;
@@ -48,56 +43,33 @@ export type Project = {
 
 /* ---------------- SKILLS ---------------- */
 
-const PROJECT_SKILLS = {
-  next: { title: "Next.js", bg: "black", fg: "white", icon: <RiNextjsFill /> },
-  node: { title: "Node.js", bg: "black", fg: "white", icon: <RiNodejsFill /> },
-  python: { title: "Python", bg: "black", fg: "white", icon: <SiPython /> },
-  postgres: {
-    title: "PostgreSQL",
-    bg: "black",
-    fg: "white",
-    icon: <SiPostgresql />,
-  },
-  mongo: { title: "MongoDB", bg: "black", fg: "white", icon: <SiMongodb /> },
-  express: {
-    title: "Express",
-    bg: "black",
-    fg: "white",
-    icon: <SiExpress />,
-  },
-  docker: { title: "Docker", bg: "black", fg: "white", icon: <SiDocker /> },
-  ts: { title: "TypeScript", bg: "black", fg: "white", icon: <SiTypescript /> },
-  react: { title: "React", bg: "black", fg: "white", icon: <RiReactjsFill /> },
-  socket: {
-    title: "Socket.io",
-    bg: "black",
-    fg: "white",
-    icon: <SiSocketdotio />,
-  },
-  supabase: {
-    title: "Supabase",
-    bg: "black",
-    fg: "white",
-    icon: <SiSupabase />,
-  },
+const S = {
+  python: { title: "Python", icon: <SiPython /> },
+  postgres: { title: "PostgreSQL", icon: <SiPostgresql /> },
+  mongo: { title: "MongoDB", icon: <SiMongodb /> },
+  redis: { title: "Redis", icon: <SiRedis /> },
+  docker: { title: "Docker", icon: <SiDocker /> },
+  express: { title: "Express", icon: <SiExpress /> },
+  react: { title: "React", icon: <RiReactjsFill /> },
+  node: { title: "Node.js", icon: <RiNodejsFill /> },
+  ts: { title: "TypeScript", icon: <SiTypescript /> },
+  jenkins: { title: "Jenkins", icon: <SiJenkins /> },
 };
 
-/* ---------------- SAFE LINK COMPONENT ---------------- */
+/* ---------------- SAFE LINKS ---------------- */
 
 const ProjectsLinks = ({ live, repo }: { live?: string; repo?: string }) => {
   return (
-    <div className="flex gap-3 my-3 mb-6">
-      {typeof live === "string" && live.length > 0 && (
-        <Link target="_blank" href={live}>
+    <div className="flex gap-3 mt-4">
+      {live && (
+        <Link href={live} target="_blank">
           <Button size="sm">
-            Visit
-            <ArrowUpRight className="ml-2 w-4 h-4" />
+            Visit <ArrowUpRight className="ml-2 w-4 h-4" />
           </Button>
         </Link>
       )}
-
-      {typeof repo === "string" && repo.length > 0 && (
-        <Link target="_blank" href={repo}>
+      {repo && (
+        <Link href={repo} target="_blank">
           <Button size="sm" variant="outline">
             Github
           </Button>
@@ -115,148 +87,151 @@ const projects: Project[] = [
     category: "Agentic AI System",
     title: "Agentic Movie Assistant",
     src: "/assets/projects-screenshots/portfolio/landing.png",
-    screenshots: [],
     tags: ["ai", "backend", "systems"],
 
-    skills: {
-      frontend: [],
-      backend: [
-        PROJECT_SKILLS.python,
-        PROJECT_SKILLS.postgres,
-        PROJECT_SKILLS.docker,
-      ],
-    },
+    skills: [S.python, S.postgres, S.docker],
 
-    live: "#",
-    github: "#",
+    github: "https://github.com/Rupesh-Max-na-Ore/Agentic-Movie-Recommender",
 
     highlights: [
       "LLM-driven intent parsing with function calling",
-      "Stateful backend for users, watchlists, and scheduling",
-      "Semantic recommendation system over 4800+ movies",
-      "Dockerized deployment with runtime model loading",
+      "Semantic recommendation over 4800+ movies",
+      "Stateful backend with users, watchlists, scheduling",
+      "Handled runtime model loading (~100MB artifacts)",
+      "Dockerized deployment with automated DB initialization",
     ],
 
     architecture:
       "User → LLM → Intent Parser → Function Router → Backend → PostgreSQL",
 
     content: (
-      <TypographyP>
-        Agentic system enabling natural language interaction with structured backend orchestration.
-      </TypographyP>
+      <p className="text-sm text-zinc-400 leading-relaxed">
+        Designed an agentic system that translates natural language into structured backend actions. 
+        Focused on bridging ambiguity in user intent with deterministic execution pipelines, while 
+        maintaining persistent state across interactions.
+      </p>
     ),
   },
 
   {
     id: "monitoring",
-    category: "DevOps / Observability",
-    title: "Monitoring & Alerting System",
+    category: "Observability System",
+    title: "SRE Monitoring & Alerting System",
     src: "/assets/projects-screenshots/portfolio/landing.png",
-    screenshots: [],
     tags: ["devops", "systems"],
 
-    skills: {
-      frontend: [],
-      backend: [PROJECT_SKILLS.docker],
-    },
+    skills: [S.docker],
 
-    live: "#",
-    github: "#",
+    github: "https://github.com/Rupesh-Max-na-Ore/sre-monitoring-alerting-system-2",
 
     highlights: [
-      "Prometheus-based metrics collection",
-      "Grafana dashboards for observability",
-      "Alert pipeline with rule-based triggers",
-      "Simulated load testing and RCA workflows",
+      "Prometheus-based metrics collection (CPU + app latency)",
+      "Grafana dashboards for visualization",
+      "Alert lifecycle simulation (Inactive → Firing → Recovery)",
+      "Performed RCA on high CPU and latency scenarios",
+      "Instrumented Flask app for observability metrics",
     ],
 
     architecture:
       "Application → Prometheus → Grafana → Alert Manager",
 
     content: (
-      <TypographyP>
-        Containerized observability stack for monitoring and alerting pipelines.
-      </TypographyP>
+      <p className="text-sm text-zinc-400 leading-relaxed">
+        Built a monitoring pipeline to understand how systems expose internal state. 
+        Simulated failure scenarios and traced issues through metrics, alerts, and 
+        root cause analysis workflows.
+      </p>
     ),
   },
 
   {
-    id: "codingducks",
-    category: "Distributed Coding Platform",
-    title: "Coding Ducks",
-    src: "/assets/projects-screenshots/codingducks/landing.png",
-    screenshots: ["landing.png"],
-    tags: ["backend", "systems"],
+    id: "mindful-gallery",
+    category: "Full Stack + DevOps",
+    title: "Mindful Image Gallery",
+    src: "/assets/projects-screenshots/portfolio/landing.png",
+    tags: ["backend", "systems", "devops"],
 
-    skills: {
-      frontend: [PROJECT_SKILLS.ts, PROJECT_SKILLS.next],
-      backend: [
-        PROJECT_SKILLS.node,
-        PROJECT_SKILLS.express,
-        PROJECT_SKILLS.postgres,
-        PROJECT_SKILLS.socket,
-      ],
-    },
+    skills: [
+      S.react,
+      S.node,
+      S.mongo,
+      S.redis,
+      S.docker,
+      S.jenkins,
+    ],
 
-    live: "https://www.codingducks.xyz/",
-    github: "https://github.com/Naresh-Khatri/Coding-Ducks",
+    github: "https://github.com/Rupesh-Max-na-Ore/images-gallery",
 
     highlights: [
-      "Real-time collaborative coding",
-      "Contest system with evaluation",
-      "User ranking system",
+      "Full CRUD system with REST APIs",
+      "Unsplash API integration for dynamic image fetching",
+      "Redis-based rate limiting for API control",
+      "CI/CD pipeline using Docker + Jenkins",
+      "Modular backend separation (API / business logic)",
     ],
 
     architecture:
-      "Client → Next.js → Node API → PostgreSQL + WebSockets",
+      "Client → React → Flask API → MongoDB + Redis → CI/CD Pipeline",
 
     content: (
-      <>
-        <TypographyP>
-          Distributed platform combining collaboration and competitive programming.
-        </TypographyP>
-        <ProjectsLinks
-          live="https://www.codingducks.xyz/"
-          repo="https://github.com/Naresh-Khatri/Coding-Ducks"
-        />
-      </>
+      <p className="text-sm text-zinc-400 leading-relaxed">
+        Built a full-stack system mimicking SaaS workflows, focusing on modular architecture, 
+        controlled API usage, and deployment automation through CI/CD pipelines.
+      </p>
     ),
   },
 
   {
-    id: "ghostchat",
-    category: "Realtime Messaging",
-    title: "GhostChat",
-    src: "/assets/projects-screenshots/ghostchat/1.png",
-    screenshots: ["1.png"],
-    tags: ["backend", "systems"],
+    id: "raycasting",
+    category: "Systems / Graphics",
+    title: "2.5D Raycasting Engine",
+    src: "/assets/projects-screenshots/portfolio/landing.png",
+    tags: ["systems"],
 
-    skills: {
-      frontend: [PROJECT_SKILLS.react],
-      backend: [PROJECT_SKILLS.supabase],
-    },
+    skills: [],
 
-    live: "https://ghostchat.vercel.app",
-    github: "https://github.com/Naresh-Khatri/GhostChat",
+    github: "https://github.com/Rupesh-Max-na-Ore/2.5D-Raycasting",
 
     highlights: [
-      "Realtime messaging using subscriptions",
-      "Anonymous system design",
-      "Low-latency architecture",
+      "Real-time rendering engine inspired by Wolfenstein 3D",
+      "Implemented ray-wall intersection using trigonometry",
+      "Built pixel-level rendering pipeline from scratch",
+      "Handled movement, angle normalization, grid traversal",
     ],
 
-    architecture: "Client → Next.js → Supabase Realtime",
+    content: (
+      <p className="text-sm text-zinc-400 leading-relaxed">
+        Low-level systems project implementing rendering logic from scratch. 
+        Focused on mathematical modeling, event-driven updates, and 
+        understanding how graphics pipelines work at a fundamental level.
+      </p>
+    ),
+  },
+
+  {
+    id: "auction-engine",
+    category: "Algorithms / Game Theory",
+    title: "Game-Theoretic Travel Auction Engine",
+    src: "/assets/projects-screenshots/portfolio/landing.png",
+    tags: ["systems"],
+
+    skills: [S.python],
+
+    github: "https://github.com/Rupesh-Max-na-Ore/Travel-Auction-Game-Theoretic-Engine",
+
+    highlights: [
+      "Combinatorial bidding and allocation system",
+      "Dynamic programming for winner determination",
+      "Explored segment trees for bundle evaluation",
+      "Simulated trade-offs between user satisfaction and revenue",
+    ],
 
     content: (
-      <>
-        <TypographyP>
-          Anonymous real-time messaging system.
-        </TypographyP>
-        <ProjectsLinks
-          live="https://ghostchat.vercel.app"
-          repo="https://github.com/Naresh-Khatri/GhostChat"
-        />
-      </>
+      <p className="text-sm text-zinc-400 leading-relaxed">
+        Algorithm-heavy system exploring optimization and resource allocation. 
+        Focused on modeling decision trade-offs and designing extensible 
+        auction logic with separation of concerns.
+      </p>
     ),
   },
 ];
