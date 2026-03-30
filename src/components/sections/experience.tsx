@@ -23,7 +23,7 @@ const ExperienceSection = () => {
           {/* Connector Line - simplified to a subtle border */}
           <div className="absolute left-8 md:left-1/2 top-4 bottom-4 w-px bg-border hidden md:block -translate-x-1/2" />
 
-          {EXPERIENCE.map((exp, index) => (
+          {EXPERIENCE?.map((exp, index) => (
             <div key={exp.id} className="relative">
               <ExperienceCard experience={exp} index={index} />
             </div>

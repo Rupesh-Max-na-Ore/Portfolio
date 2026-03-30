@@ -9,6 +9,9 @@ import ExperienceSection from "@/components/sections/experience";
 import ProjectsSection from "@/components/sections/projects";
 import ContactSection from "@/components/sections/contact";
 import HeroSection from "@/components/sections/hero";
+import HowIThinkSection from "@/components/sections/how-i-think";
+import StoriesSection from "@/components/sections/stories";
+import NowSection from "@/components/sections/now";
 
 function MainPage() {
   return (
@@ -17,8 +20,11 @@ function MainPage() {
       <main className={cn("bg-slate-100 dark:bg-transparent canvas-overlay-mode")}>
         <HeroSection />
         <SkillsSection />
+        <NowSection />
         <ExperienceSection />
         <ProjectsSection />
+        <HowIThinkSection />
+        <StoriesSection />
         <ContactSection />
       </main>
     </SmoothScroll>

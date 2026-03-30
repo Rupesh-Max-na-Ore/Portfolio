@@ -1,4 +1,3 @@
-// thoda zada ts ho gya idhar
 export enum SkillNames {
   JS = "js",
   TS = "ts",
@@ -8,24 +7,47 @@ export enum SkillNames {
   VUE = "vue",
   NEXTJS = "nextjs",
   TAILWIND = "tailwind",
+
   NODEJS = "nodejs",
   EXPRESS = "express",
+  FLASK = "flask",
+
   POSTGRES = "postgres",
   MONGODB = "mongodb",
+  REDIS = "redis",
+
   GIT = "git",
   GITHUB = "github",
   PRETTIER = "prettier",
   NPM = "npm",
+
   FIREBASE = "firebase",
   WORDPRESS = "wordpress",
+
   LINUX = "linux",
   DOCKER = "docker",
+  KUBERNETES = "kubernetes",
   NGINX = "nginx",
+
   AWS = "aws",
   GCP = "gcp",
+
   VIM = "vim",
   VERCEL = "vercel",
+
+  /* 🔥 NEW */
+  PYTHON = "python",
+  LANGCHAIN = "langchain",
+  LLM = "llm",
+
+  ALGORITHMS = "algorithms",
+  DSA = "dsa",
+  GAME_THEORY = "game_theory",
+  SYSTEM_DESIGN = "system_design",
+  NETWORKING = "networking",
+  OPTIMIZATION = "optimization",
 }
+
 export type Skill = {
   id: number;
   name: string;
@@ -34,12 +56,14 @@ export type Skill = {
   color: string;
   icon: string;
 };
+
 export const SKILLS: Record<SkillNames, Skill> = {
+  /* 🔹 FRONTEND */
   [SkillNames.JS]: {
     id: 1,
     name: "js",
     label: "JavaScript",
-    shortDescription: "yeeting code into the DOM since '95, no cap! 💯🚀",
+    shortDescription: "Core language for web and event-driven systems",
     color: "#f0db4f",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
   },
@@ -47,8 +71,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     id: 2,
     name: "ts",
     label: "TypeScript",
-    shortDescription:
-      "JavaScript's overachieving cousin who's always flexing 💯🔒",
+    shortDescription: "Typed JavaScript for scalable applications",
     color: "#007acc",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
   },
@@ -56,7 +79,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     id: 3,
     name: "html",
     label: "HTML",
-    shortDescription: "the internet's granddad,  still bussin' fr fr! 💀🔥",
+    shortDescription: "Structure layer of web applications",
     color: "#e34c26",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
   },
@@ -64,7 +87,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     id: 4,
     name: "css",
     label: "CSS",
-    shortDescription: "styling with the ultimate drip, no cap 💁‍♂️🔥",
+    shortDescription: "Styling and layout for responsive UI",
     color: "#563d7c",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
   },
@@ -72,8 +95,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     id: 5,
     name: "react",
     label: "React",
-    shortDescription: `"use using" 
-using use = useUsing("use")`,
+    shortDescription: "Component-based UI framework",
     color: "#61dafb",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   },
@@ -81,8 +103,7 @@ using use = useUsing("use")`,
     id: 6,
     name: "vue",
     label: "Vue",
-    shortDescription:
-      "the chill pill for your frontend, it hits different! 🟢😌",
+    shortDescription: "Reactive frontend framework",
     color: "#41b883",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
   },
@@ -90,24 +111,25 @@ using use = useUsing("use")`,
     id: 7,
     name: "nextjs",
     label: "Next.js",
-    shortDescription:
-      "the drama queen of front-end frameworks, and we stan! 👑📜",
-    color: "#fff",
+    shortDescription: "Full-stack React framework",
+    color: "#ffffff",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
   },
   [SkillNames.TAILWIND]: {
     id: 8,
     name: "tailwind",
     label: "Tailwind",
-    shortDescription: "utility classes hitting different fr fr 🌪️🔥",
+    shortDescription: "Utility-first CSS framework",
     color: "#38bdf8",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
   },
+
+  /* 🔹 BACKEND */
   [SkillNames.NODEJS]: {
     id: 9,
     name: "nodejs",
     label: "Node.js",
-    shortDescription: "JavaScript said 'sike, I'm backend now', deadass! 🔙🔚",
+    shortDescription: "Event-driven backend runtime",
     color: "#6cc24a",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
   },
@@ -115,133 +137,240 @@ using use = useUsing("use")`,
     id: 10,
     name: "express",
     label: "Express",
-    shortDescription: "middlewares go dummy hard, no cap! 🚂💨",
-    color: "#fff",
+    shortDescription: "Backend framework for APIs",
+    color: "#ffffff",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
   },
-  [SkillNames.POSTGRES]: {
+  [SkillNames.FLASK]: {
     id: 11,
+    name: "flask",
+    label: "Flask",
+    shortDescription: "Lightweight Python API framework",
+    color: "#ffffff",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
+  },
+
+  /* 🔹 DATABASE */
+  [SkillNames.POSTGRES]: {
+    id: 12,
     name: "postgres",
     label: "PostgreSQL",
-    shortDescription: "SQL but make it fashion, purr 💅🐘",
+    shortDescription: "Relational DB with strong consistency",
     color: "#336791",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
   },
   [SkillNames.MONGODB]: {
-    id: 12,
+    id: 13,
     name: "mongodb",
     label: "MongoDB",
-    shortDescription: "flexin' with that NoSQL drip, respectfully! 💪🍃",
-    color: "#336791",
+    shortDescription: "NoSQL document database",
+    color: "#47a248",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
   },
-  [SkillNames.GIT]: {
-    id: 13,
-    name: "git",
-    label: "Git",
-    shortDescription: "the code's personal bodyguard, no cap! 🕵️‍♂️🔄",
-    color: "#f1502f",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-  },
-  [SkillNames.GITHUB]: {
+  [SkillNames.REDIS]: {
     id: 14,
-    name: "github",
-    label: "GitHub",
-    shortDescription: "sliding into those pull requests, IYKYK! 🐙",
-    color: "#000000",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    name: "redis",
+    label: "Redis",
+    shortDescription: "In-memory caching and queue system",
+    color: "#dc382d",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
   },
-  [SkillNames.PRETTIER]: {
-    id: 15,
-    name: "prettier",
-    label: "Prettier",
-    shortDescription: "making your code not a whole mess, thank u next 🧹✨",
-    color: "#f7b93a",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prettier/prettier-original.svg",
-  },
-  [SkillNames.NPM]: {
-    id: 16,
-    name: "npm",
-    label: "NPM",
-    shortDescription: "package manager said 'I gotchu fam', period! 📦💯",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg",
-  },
-  [SkillNames.FIREBASE]: {
-    id: 17,
-    name: "firebase",
-    label: "Firebase",
-    shortDescription:
-      "your app's ultimate wingman, but watch out, vendor lock-in vibes! 🔥👌",
-    color: "#ffca28",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
-  },
-  [SkillNames.WORDPRESS]: {
-    id: 18,
-    name: "wordpress",
-    label: "WordPress",
-    shortDescription: "the grandpa of CMS, still rocking that cane 🧓👴",
-    color: "#007acc",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
-  },
-  [SkillNames.LINUX]: {
-    id: 19,
-    name: "linux",
-    label: "Linux",
-    shortDescription: "where 'chmod 777' is the ultimate flex 🔓🙌",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
-  },
+
+  /* 🔹 DEVOPS */
   [SkillNames.DOCKER]: {
-    id: 20,
+    id: 15,
     name: "docker",
     label: "Docker",
-    shortDescription: "The best containerization! 🐳🔥",
+    shortDescription: "Containerization for deployments",
     color: "#2496ed",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
   },
-  [SkillNames.NGINX]: {
-    id: 21,
-    name: "nginx",
-    label: "NginX",
-    shortDescription: "reverse proxy go zoom zoom, sheesh! 🚗💨",
-    color: "#008000",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg",
+  [SkillNames.KUBERNETES]: {
+    id: 16,
+    name: "kubernetes",
+    label: "Kubernetes",
+    shortDescription: "Container orchestration",
+    color: "#326ce5",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg",
   },
   [SkillNames.AWS]: {
-    id: 22,
+    id: 17,
     name: "aws",
     label: "AWS",
-    shortDescription:
-      "always extra, making everything more complicated, period! 🌐👨‍💻",
+    shortDescription: "Cloud infrastructure platform",
     color: "#ff9900",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg",
   },
   [SkillNames.GCP]: {
-    id: 25,
+    id: 18,
     name: "gcp",
     label: "Google Cloud",
-    shortDescription:
-      "cloud computing but make it Google vibes, living rent free! ☁️🔥",
+    shortDescription: "Cloud computing services",
     color: "#4285f4",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
   },
-  [SkillNames.VIM]: {
+  [SkillNames.NGINX]: {
+    id: 19,
+    name: "nginx",
+    label: "Nginx",
+    shortDescription: "Reverse proxy and load balancer",
+    color: "#008000",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg",
+  },
+  [SkillNames.LINUX]: {
+    id: 20,
+    name: "linux",
+    label: "Linux",
+    shortDescription: "System-level operations and scripting",
+    color: "#ffffff",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+  },
+
+  /* 🔹 TOOLS */
+  [SkillNames.GIT]: {
+    id: 21,
+    name: "git",
+    label: "Git",
+    shortDescription: "Version control system",
+    color: "#f1502f",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  },
+  [SkillNames.GITHUB]: {
+    id: 22,
+    name: "github",
+    label: "GitHub",
+    shortDescription: "Code collaboration platform",
+    color: "#000000",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+  },
+  [SkillNames.NPM]: {
     id: 23,
+    name: "npm",
+    label: "NPM",
+    shortDescription: "Package manager for Node.js",
+    color: "#cb3837",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg",
+  },
+  [SkillNames.PRETTIER]: {
+    id: 24,
+    name: "prettier",
+    label: "Prettier",
+    shortDescription: "Code formatting tool",
+    color: "#f7b93a",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prettier/prettier-original.svg",
+  },
+  [SkillNames.VIM]: {
+    id: 25,
     name: "vim",
     label: "Vim",
-    shortDescription: "exit? In this economy? Ight, imma head out! 🚪🏃",
-    color: "#e34c26",
+    shortDescription: "Efficient terminal-based editor",
+    color: "#019733",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg",
   },
+
+  /* 🔹 AI */
+  [SkillNames.PYTHON]: {
+    id: 26,
+    name: "python",
+    label: "Python",
+    shortDescription: "Primary language for AI and backend systems",
+    color: "#3776ab",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  },
+  [SkillNames.LANGCHAIN]: {
+    id: 27,
+    name: "langchain",
+    label: "LangChain",
+    shortDescription: "LLM orchestration and agent pipelines",
+    color: "#ffffff",
+    icon: "https://seeklogo.com/images/L/langchain-logo-4C5A88F6A0-seeklogo.com.png",
+  },
+  [SkillNames.LLM]: {
+    id: 28,
+    name: "llm",
+    label: "LLM Systems",
+    shortDescription: "Prompt engineering and AI systems integration",
+    color: "#9333ea",
+    icon: "https://cdn-icons-png.flaticon.com/512/4712/4712109.png",
+  },
+
+  /* 🔹 REMAINING */
+  [SkillNames.FIREBASE]: {
+    id: 29,
+    name: "firebase",
+    label: "Firebase",
+    shortDescription: "Backend-as-a-service platform",
+    color: "#ffca28",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+  },
+  [SkillNames.WORDPRESS]: {
+    id: 30,
+    name: "wordpress",
+    label: "WordPress",
+    shortDescription: "CMS for web applications",
+    color: "#21759b",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
+  },
   [SkillNames.VERCEL]: {
-    id: 24,
+    id: 31,
     name: "vercel",
     label: "Vercel",
-    shortDescription:
-      "The triangle compony, helps you deploy and go touch grass! 🚀🌿",
-    color: "#6cc24a",
+    shortDescription: "Frontend deployment platform",
+    color: "#000000",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+  },
+  [SkillNames.ALGORITHMS]: {
+    id: 100,
+    name: "algorithms",
+    label: "Algorithms",
+    shortDescription: "Design and analysis of efficient algorithms",
+    color: "#f59e0b",
+    icon: "https://cdn-icons-png.flaticon.com/512/2721/2721268.png",
+  },
+
+  [SkillNames.DSA]: {
+    id: 101,
+    name: "dsa",
+    label: "Data Structures",
+    shortDescription: "Core data structures and problem solving",
+    color: "#10b981",
+    icon: "https://cdn-icons-png.flaticon.com/512/1055/1055687.png",
+  },
+
+  [SkillNames.GAME_THEORY]: {
+    id: 102,
+    name: "game_theory",
+    label: "Game Theory",
+    shortDescription: "Strategic interaction and optimization models",
+    color: "#8b5cf6",
+    icon: "https://cdn-icons-png.flaticon.com/512/3062/3062634.png",
+  },
+
+  [SkillNames.SYSTEM_DESIGN]: {
+    id: 103,
+    name: "system_design",
+    label: "System Design",
+    shortDescription: "LLD/HLD and scalable architecture design",
+    color: "#3b82f6",
+    icon: "https://cdn-icons-png.flaticon.com/512/1048/1048953.png",
+  },
+
+  [SkillNames.NETWORKING]: {
+    id: 104,
+    name: "networking",
+    label: "Networking",
+    shortDescription: "Distributed systems and communication models",
+    color: "#06b6d4",
+    icon: "https://cdn-icons-png.flaticon.com/512/3063/3063822.png",
+  },
+
+  [SkillNames.OPTIMIZATION]: {
+    id: 105,
+    name: "optimization",
+    label: "Optimization",
+    shortDescription: "Mathematical optimization and resource allocation",
+    color: "#ef4444",
+    icon: "https://cdn-icons-png.flaticon.com/512/4341/4341139.png",
   },
 };
 
@@ -256,68 +385,91 @@ export type Experience = {
 };
 
 export const EXPERIENCE: Experience[] = [
+  /* 🔥 1. PROJECTS (TOP PRIORITY) */
   {
     id: 1,
-    startDate: "Dec 2024",
+    startDate: "Sep 2024",
     endDate: "Present",
-    title: "Full Stack Developer",
-    company: "OmniNexus Sdn Bhd",
+    title: "Systems & AI Engineering Projects",
+    company: "Personal Projects",
     description: [
-      "Built a custom image editor from scratch, cutting $4.8k/year in SaaS costs.",
-      "Architected async job queues processing 1k+ AI tasks daily with bulletproof reliability.",
-      "Optimized media delivery pipeline, slashing asset load times by 40%.",
-      "Shipped high-impact features end-to-end from requirements to production.",
+      "Designed and deployed an agentic AI system enabling natural language-driven workflows for movie discovery, planning, and tracking.",
+      "Built LLM-powered backend with intent parsing and function calling, mapping user queries to structured database operations.",
+      "Engineered a semantic recommendation engine over 4800+ items using feature engineering and similarity computation.",
+      "Developed stateful backend systems supporting users, watchlists, reviews, and temporal planning workflows.",
+      "Implemented production-grade pipelines including containerization (Docker), automated DB initialization, and dependency orchestration.",
+      "Built SRE-grade monitoring system using Prometheus + Grafana with alert lifecycle validation and root cause analysis workflows.",
+      "Instrumented backend services for observability (latency, request rate) and implemented alerting for anomaly detection.",
+      "Developed full-stack systems with Flask + React + MongoDB + Redis, including CI/CD pipelines (Docker + Jenkins) and rate-limited APIs.",
+      "Built low-level systems including a real-time 2.5D raycasting engine in C with custom rendering pipeline and trigonometric computations.",
+      "Applied algorithmic optimization (DP, segment trees) in a game-theoretic auction system for resource allocation problems."
     ],
     skills: [
-      SkillNames.NEXTJS,
-      SkillNames.TS,
-      SkillNames.REACT,
+      SkillNames.PYTHON,
+      SkillNames.LLM,
+      SkillNames.LANGCHAIN,
       SkillNames.NODEJS,
+      SkillNames.FLASK,
       SkillNames.POSTGRES,
       SkillNames.MONGODB,
+      SkillNames.REDIS,
       SkillNames.DOCKER,
+      SkillNames.KUBERNETES,
+      SkillNames.AWS,
+      SkillNames.GCP,
+      SkillNames.LINUX,
+      SkillNames.REACT,
+      SkillNames.TS,
+    ],
+  },
+
+  /* 🔹 2. DEEP LEARNING INTERN */
+  {
+    id: 2,
+    startDate: "Sep 2025",
+    endDate: "Nov 2025",
+    title: "Deep Learning Intern",
+    company: "KIIT University",
+    description: [
+      "Worked on backend and data pipeline for GAN-based system generating realistic flower renderings.",
+      "Handled data preprocessing and integration for training pipelines.",
+      "Strengthened practical skills in SQL, BigQuery, and Flask.",
+      "Collaborated under academic supervision on applied ML systems."
+    ],
+    skills: [
+      SkillNames.PYTHON,
+      SkillNames.FLASK,
+      SkillNames.POSTGRES,
       SkillNames.GCP,
     ],
   },
+
+  /* 🔹 3. RESEARCH INTERN */
   {
-    id: 2,
-    startDate: "Apr 2022",
-    endDate: "Dec 2024",
-    title: "Freelance Full Stack Developer",
-    company: "Self-employed",
+    id: 3,
+    startDate: "Sep 2024",
+    endDate: "Mar 2025",
+    title: "Research Intern",
+    company: "KIIT University",
     description: [
-      "Transformed chaotic Excel sheets into polished internal tools for various clients.",
-      "Shipped dashboards and custom CMS platforms tailored to each client's workflow.",
-      "Automated repetitive processes, improving efficiency and reducing human error.",
-      "Focused on clean, maintainable code and interfaces that users actually enjoy.",
+      "Authored 2 research papers on game theory in edge computing and distributed systems.",
+      "Implemented algorithmic models and conducted system-level simulations.",
+      "Applied concepts from networking, distributed systems, and optimization.",
+      "Bridged theoretical models with practical system design insights."
     ],
     skills: [
-      SkillNames.REACT,
-      SkillNames.VUE,
-      SkillNames.NODEJS,
-      SkillNames.EXPRESS,
-      SkillNames.MONGODB,
-      SkillNames.POSTGRES,
-      SkillNames.TAILWIND,
-      SkillNames.WORDPRESS,
+      SkillNames.ALGORITHMS,
+      SkillNames.DSA,
+      SkillNames.GAME_THEORY,
+      SkillNames.OPTIMIZATION,
+      SkillNames.SYSTEM_DESIGN,
+      SkillNames.NETWORKING,
+      SkillNames.PYTHON,
     ],
   },
 ];
 
 export const themeDisclaimers = {
-  light: [
-    "Warning: Light mode emits a gazillion lumens of pure radiance!",
-    "Caution: Light mode ahead! Please don't try this at home.",
-    "Only trained professionals can handle this much brightness. Proceed with sunglasses!",
-    "Brace yourself! Light mode is about to make everything shine brighter than your future.",
-    "Flipping the switch to light mode... Are you sure your eyes are ready for this?",
-  ],
-  dark: [
-    "Light mode? I thought you went insane... but welcome back to the dark side!",
-    "Switching to dark mode... How was life on the bright side?",
-    "Dark mode activated! Thanks you from the bottom of my heart, and my eyes too.",
-    "Welcome back to the shadows. How was life out there in the light?",
-    "Dark mode on! Finally, someone who understands true sophistication.",
-  ],
+  light: "Light mode activated",
+  dark: "Dark mode activated",
 };
-
